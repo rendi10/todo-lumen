@@ -20,5 +20,6 @@ $router->get('/todo', 'TodoController@index');
 $router->get('/bot', 'TeleController@sendButton');
 $router->get('/quote', 'TeleController@sendQuote');
 $router->put('/done/{id}', 'TodoController@updateStatus');
+$router->get('/fixtures', 'TeleController@sendFixtures');
 
 
