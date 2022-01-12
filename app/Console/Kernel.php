@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\sendQuotes::class,
+        \App\Console\Commands\sendFixtures::class,
     ];
 
     /**
@@ -24,6 +25,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //
+        $schedule->command('send-quotes')
+        ->dailyAt('05:00')
+        ->timezone('Asia/Bangkok');
+        $schedule->command('send-fixtures')
+        ->dailyAt('19:00')
+        ->timezone('Asia/Bangkok');
     }
 }

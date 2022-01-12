@@ -16,6 +16,10 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
 $router->get('/todo', 'TodoController@index');
 $router->get('/bot', 'TeleController@sendButton');
 $router->get('/quote', 'TeleController@sendQuote');
